@@ -316,7 +316,8 @@ done
 checa "[ $documentos -ge 2 ]" "o comando foi lido de pelo menos dois documentos (guarda de vacuidade)"
 # A outra metade que só vive em prosa: a forma de chamar em cada CLI e a defasagem da cópia.
 checa "grep -qF '\$deskcomm-instalar' \"\$RAIZ/README.md\" && ! grep -qE 'digite .?/deskcomm-' \"\$RAIZ/README.md\"" "o README ensina a forma do Codex e não manda digitar / em todos"
-checa "grep -q 'se atualizam sozinhos' \"\$RAIZ/README.md\" && grep -q 'vale mais que o do clone' \"\$RAIZ/README.md\"" "o README diz que a cópia não se atualiza sozinha e que no Claude Code ela vence o clone"
+# O README deste fork está em espanhol; o do original, em português. A frase é a mesma nos dois.
+checa "grep -qE 'se atualizam sozinhos|se actualizan solas' \"\$RAIZ/README.md\" && grep -qE 'vale mais que o do clone|vale más que la del clon' \"\$RAIZ/README.md\"" "o README diz que a cópia não se atualiza sozinha e que no Claude Code ela vence o clone"
 
 # Os deskcomm-* que sobraram nas três pastas, fora o link que a pessoa fez à mão.
 # shellcheck disable=SC2329  # chamada de dentro das condições que o `checa` avalia
